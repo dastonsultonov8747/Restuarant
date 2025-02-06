@@ -1,7 +1,8 @@
-from .models import BigMenu, SmallMenu, Product, Aksiya, Slider, NewProduct, Order
+from .models import BigMenu, SmallMenu, Product, Aksiya, Slider, NewProduct, Tables
 import random
 from rest_framework.response import Response
 from rest_framework import status
+from .forms import PeopleOrderForm
 from rest_framework.views import APIView
 from .serializers import BigMenuSerializer, SmallMenuSerializer, ProductSerializer
 from django.shortcuts import render, redirect
@@ -31,6 +32,45 @@ def about(request):
 
 def menu(request):
     return render(request, 'food_menus.html')
+
+
+def contacts_view(request):
+    tables = Tables.objects.all()
+    if request.method == 'POST':
+        print("////////////////////////////////////////////////////")
+        print(request.POST, "////////////////////////////////////////////////////")
+        print("Malumot olindi")
+        form = PeopleOrderForm(request.POST)
+        if form.is_valid():
+            print(",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,")
+            print("Malumot olindi")
+            form.save()
+            return redirect('/')
+    else:
+        form = PeopleOrderForm()
+
+    return render(request, 'contacts.html', {'form': form, 'tables': tables})
+
+
+# def contact_view(request):
+#     if request.method == 'POST':
+#         # POST metodini ishlatishda ma'lumotlarni olish
+#         name = request.POST.get('name')
+#         surname = request.POST.get('surname')
+#         email = request.POST.get('email')
+#         tel = request.POST.get('phone')
+#         tabl = request.POST.get('table')
+#         buyurma_sanasi = request.POST.get('buyurma_sanasi')
+#         mehmonlar_soni = request.POST.get('mehmonlar_soni')
+#         maxsus_sorovlar = request.POST.get('maxsus_sorovlar')
+#         print(name, surname, email, tel, tabl, buyurma_sanasi, mehmonlar_soni, maxsus_sorovlar)
+#         # Boshqa maydonlar...
+#
+#         # Ma'lumotlarni qayta ishlash, saqlash yoki yuborish
+#         return HttpResponse("POST metod ishladi. Ma'lumotlar qabul qilindi.")
+#     else:
+#         tables = Tables.objects.all()
+#         return render(request, 'contacts.html', {'tables': tables})
 
 
 # BigMenu API

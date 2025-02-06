@@ -26,6 +26,7 @@
                 <h4 class="text-spacing-25 text-transform-none">Oldindan joy band qilish</h4>
                 <form class="rd-form rd-mailform" data-form-output="form-output-global" data-form-type="contact"
                       method="post" action="/aloqa/">
+                    {% csrf_token %}
                     <div class="row row-20 gutters-20">
                         <!-- Name Field -->
                         <div class="col-md-6">
@@ -64,22 +65,21 @@
                         </div>
 
                         <!-- Table Select -->
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="margin-top: 40px">
                             <div class="form-wrap">
                                 <select class="form-input" name="table" data-constraints="@Required">
                                     <option value="">Stolni tanlang</option>
                                     {% for table in tables %}
-                                    <option value="{{ table.id }}">{{ table.number }} - {{ table.stoldagi_orindiq_soni
-                                        }} o'rindiq
+                                    <option>{{ table.number }}- Stul - {{ table.stoldagi_orindiq_soni }} o'rindiq
                                     </option>
                                     {% endfor %}
                                 </select>
-                                <label class="form-label" for="table">Stolni tanlang*</label>
                             </div>
                         </div>
 
-                        <!-- Date & Time (Buyurma Sanasi) -->
+                        <!-- Date & Time -->
                         <div class="col-md-6">
+                            <label class="form-label" for="buyurma_sanasi">Buyurma sanasi</label><br>
                             <div class="form-wrap">
                                 <input class="form-input" id="buyurma_sanasi" type="datetime-local"
                                        name="buyurma_sanasi" data-constraints="@Required" placeholder=" ">
@@ -88,19 +88,19 @@
 
                         <!-- Guests Number -->
                         <div class="col-md-6">
+                            <label class="form-label" for="mehmonlar_soni">Mehmonlar soni</label><br>
                             <div class="form-wrap">
                                 <input class="form-input" id="mehmonlar_soni" type="number" name="mehmonlar_soni"
                                        min="1" data-constraints="@Required" placeholder=" ">
-                                <label class="form-label" for="mehmonlar_soni">Mehmonlar soni*</label>
                             </div>
                         </div>
 
                         <!-- Special Requests -->
                         <div class="col-12">
+                            <label class="form-label" style="font-size: 20px">Maxsus sorovlar</label><br>
                             <div class="form-wrap">
                                 <textarea class="form-input textarea-lg" id="maxsus_sorovlar" name="maxsus_sorovlar"
                                           placeholder=" "></textarea>
-                                <label class="form-label" for="maxsus_sorovlar">Maxsus sorovlar</label>
                             </div>
                         </div>
 
@@ -112,7 +112,6 @@
                         </div>
                     </div>
                 </form>
-
 
             </div>
             <!--           /////////////////////////////////////////////////////////////////////////////////////// -->
@@ -132,18 +131,18 @@
                             <p class="aside-contacts-title">Phone</p>
                             <div class="unit unit-spacing-xs justify-content-center justify-content-md-start">
                                 <div class="unit-left"><span class="icon mdi mdi-phone"></span></div>
-                                <div class="unit-body"><a class="phone" href="tel:#">1-800-1234-567</a></div>
+                                <div class="unit-body"><a class="phone" href="tel:#">+998 94 395 87 47</a></div>
                             </div>
                         </div>
                         <div class="col-sm-6 col-lg-12 aside-contacts-item">
                             <p class="aside-contacts-title">E-mail</p>
                             <div class="unit unit-spacing-xs justify-content-center justify-content-md-start">
                                 <div class="unit-left"><span class="icon mdi mdi-email-outline"></span></div>
-                                <div class="unit-body"><a class="mail" href="mailto:#">info@demolink.org</a></div>
+                                <div class="unit-body"><a class="mail" href="mailto:#">dostonsultonov15@gmail.com</a></div>
                             </div>
                         </div>
                         <div class="col-sm-6 col-lg-12 aside-contacts-item">
-                            <p class="aside-contacts-title">Address</p>
+                            <p class="aside-contacts-title">Manzil</p>
                             <div class="unit unit-spacing-xs justify-content-center justify-content-md-start">
                                 <div class="unit-left"><span class="icon mdi mdi-map-marker"></span></div>
                                 <div class="unit-body"><a class="address" href="#">6036 Richmond hwy., <br

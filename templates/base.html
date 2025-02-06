@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.8.55/css/materialdesignicons.min.css">
     <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
     <!-- Stylesheets-->
@@ -280,33 +280,31 @@
             <div class="container">
                 <div class="row row-50">
                     <div class="col-md-6 col-lg-4">
-                        <h5 class="footer-modern-title oh-desktop"><span class="d-inline-block wow slideInLeft">What We Offer</span>
+                        <h5 class="footer-modern-title oh-desktop"><span class="d-inline-block wow slideInLeft">Kategoriyalar</span>
                         </h5>
                         <ul class="footer-modern-list d-inline-block d-sm-block wow fadeInUp">
-                            <li><a href="#">Pizzas</a></li>
-                            <li><a href="#">Burgers</a></li>
-                            <li><a href="#">Salads</a></li>
-                            <li><a href="#">Drinks</a></li>
-                            <li><a href="#">Seafood</a></li>
-                            <li><a href="#">Drinks</a></li>
+                            <li><a href="#">Pizzalar</a></li>
+                            <li><a href="#">Burgerlar</a></li>
+                            <li><a href="#">Salatlar</a></li>
+                            <li><a href="#">Ichimliklar</a></li>
+                            <li><a href="#">Dengiz mahsulotlari</a></li>
+                            <li><a href="#">Alkagol</a></li>
                         </ul>
                     </div>
                     <div class="col-md-6 col-lg-4 col-xl-3">
                         <h5 class="footer-modern-title oh-desktop"><span class="d-inline-block wow slideInLeft">Information</span>
                         </h5>
                         <ul class="footer-modern-list d-inline-block d-sm-block wow fadeInUp">
-                            <li><a href="about-us.html">About us</a></li>
-                            <li><a href="#">Latest News</a></li>
-                            <li><a href="#">Our Menu</a></li>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="#">Shop</a></li>
-                            <li><a href="contacts.html">Contact Us</a></li>
+                            <li><a href="about-us/">Restaran haqida</a></li>
+                            <li><a href="menu/">Bizning menu</a></li>
+                            <li><a href="aloqa/">Aloqa</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-4 col-xl-5">
-                        <h5 class="footer-modern-title oh-desktop"><span class="d-inline-block wow slideInLeft">Newsletter</span>
+                        <h5 class="footer-modern-title oh-desktop"><span class="d-inline-block wow slideInLeft">Yangiliklar </span>
                         </h5>
-                        <p class="wow fadeInRight">Sign up today for the latest news and updates.</p>
+                        <p class="wow fadeInRight">Eng so'nggi yangiliklar va yangilanishlar uchun bugun ro'yxatdan
+                            o'ting.</p>
                         <!-- RD Mailform-->
                         <form class="rd-form rd-mailform rd-form-inline rd-form-inline-sm oh-desktop"
                               data-form-output="form-output-global" data-form-type="subscribe" method="post"
@@ -314,11 +312,11 @@
                             <div class="form-wrap wow slideInUp">
                                 <input class="form-input" id="subscribe-form-2-email" type="email" name="email"
                                        data-constraints="@Email @Required"/>
-                                <label class="form-label" for="subscribe-form-2-email">Enter your E-mail</label>
+                                <label class="form-label" for="subscribe-form-2-email">Emailingizni kiriting</label>
                             </div>
                             <div class="form-button form-button-2 wow slideInRight">
                                 <button class="button button-sm button-icon-3 button-primary button-winona"
-                                        type="submit"><span class="d-none d-xl-inline-block">Subscribe</span><span
+                                        type="submit"><span class="d-none d-xl-inline-block">Obuna boʻling</span><span
                                         class="icon mdi mdi-telegram d-xl-none"></span></button>
                             </div>
                         </form>
@@ -332,12 +330,9 @@
                     <div class="col-sm-6 col-md-7 col-lg-4 col-xl-4">
                         <div class="row row-30 align-items-center text-lg-center">
                             <div class="col-md-7 col-xl-6"><a class="brand" href="index.html"><img
-                                    src="images/logo-inverse-198x66.png" alt="" width="198" height="66"/></a></div>
-                            <div class="col-md-5 col-xl-6">
-                                <div class="iso-1"><span><img src="images/like-icon-58x25.png" alt="" width="58"
-                                                              height="25"/></span><span class="iso-1-big">9.4k</span>
-                                </div>
-                            </div>
+                                    src="{{MEDIA_URL}} media/images/logo-inverse-198x66.png" alt="" width="198"
+                                    height="66"/></a></div>
+
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-12 col-lg-8 col-xl-8 oh-desktop">
@@ -345,21 +340,23 @@
                             <div class="footer-modern-contacts wow slideInUp">
                                 <div class="unit unit-spacing-sm align-items-center">
                                     <div class="unit-left"><span class="icon icon-24 mdi mdi-phone"></span></div>
-                                    <div class="unit-body"><a class="phone" href="tel:#">+1 718-999-3939</a></div>
+                                    <div class="unit-body"><a class="phone" href="tel:#">+998 94 395 87 47</a></div>
                                 </div>
                             </div>
                             <div class="footer-modern-contacts wow slideInDown">
                                 <div class="unit unit-spacing-sm align-items-center">
                                     <div class="unit-left"><span class="icon mdi mdi-email"></span></div>
-                                    <div class="unit-body"><a class="mail" href="mailto:#">info@demolink.org</a></div>
+                                    <div class="unit-body"><a class="mail"
+                                                              href="mailto:#">dostonsultonov15@gmail.com</a></div>
                                 </div>
                             </div>
                             <div class="wow slideInRight">
-                                <ul class="list-inline footer-social-list footer-social-list-2 footer-social-list-3">
+                                <ul class="list-inline footer-social-list">
                                     <li><a class="icon mdi mdi-facebook" href="#"></a></li>
                                     <li><a class="icon mdi mdi-twitter" href="#"></a></li>
                                     <li><a class="icon mdi mdi-instagram" href="#"></a></li>
-                                    <li><a class="icon mdi mdi-google-plus" href="#"></a></li>
+                                    <li><a class="icon mdi mdi-google" href="#"></a></li>
+                                    <!-- Eskirgan google-plus o'rniga google -->
                                 </ul>
                             </div>
                         </div>
@@ -370,7 +367,7 @@
         <div class="footer-modern-line-3">
             <div class="container">
                 <div class="row row-10 justify-content-between">
-                    <div class="col-md-6"><span>514 S. Magnolia St. Orlando, FL 32806</span></div>
+                    <div class="col-md-6"><span>Sizning restaran manzilingiz kiritamiz</span></div>
                     <div class="col-md-auto">
                         <!-- Rights-->
                         <p class="rights"><span>&copy;&nbsp;</span><span

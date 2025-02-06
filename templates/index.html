@@ -180,71 +180,29 @@
 </section>
 {% endfor %}
 
-
 <!-- What We Offer-->
 <section class="section section-xl bg-default">
     <div class="container">
-        <h3 class="wow fadeInLeft">What People Say</h3>
+        <h3 class="wow fadeInLeft">Bizning mijozlarimiz fikrlari 👀</h3>
     </div>
     <div class="container container-style-1">
         <div class="owl-carousel owl-style-12" data-items="1" data-sm-items="2" data-lg-items="3" data-margin="30"
              data-xl-margin="45" data-autoplay="true" data-nav="true" data-center="true" data-smart-speed="400">
+            {% for testimonial in testimonials %}
             <!-- Quote Tara-->
             <article class="quote-tara">
                 <div class="quote-tara-caption">
                     <div class="quote-tara-text">
-                        <p class="q">PizzaHouse is the longest lasting pizza place in the city and is well run and
-                            staffed. Prices are great and allow me to keep coming back.</p>
+                        <p class="q">{{ testimonial.quote_text }}</p>
                     </div>
-                    <div class="quote-tara-figure"><img src="images/user-6-115x115.jpg" alt="" width="115"
-                                                        height="115"/>
-                    </div>
-                </div>
-                <h6 class="quote-tara-author">Ashley Fitzgerald</h6>
-                <div class="quote-tara-status">Client</div>
-            </article>
-            <!-- Quote Tara-->
-            <article class="quote-tara">
-                <div class="quote-tara-caption">
-                    <div class="quote-tara-text">
-                        <p class="q">I am a real pizza addict, and even when I’m home I prefer your pizzas to all
-                            others. They taste awesome and are very affordable.</p>
-                    </div>
-                    <div class="quote-tara-figure"><img src="images/user-8-115x115.jpg" alt="" width="115"
-                                                        height="115"/>
+                    <div class="quote-tara-figure">
+                        <img src="{{ testimonial.image.url }}" alt="" width="115" height="115"/>
                     </div>
                 </div>
-                <h6 class="quote-tara-author">Stephanie Williams</h6>
-                <div class="quote-tara-status">Client</div>
+                <h6 class="quote-tara-author">{{ testimonial.author_name }}</h6>
+                <div class="quote-tara-status">{{ testimonial.status }}</div>
             </article>
-            <!-- Quote Tara-->
-            <article class="quote-tara">
-                <div class="quote-tara-caption">
-                    <div class="quote-tara-text">
-                        <p class="q">PizzaHouse has amazing pizza. Not only do you get served with a great attitude,
-                            you also get delicious pizza at a great price!</p>
-                    </div>
-                    <div class="quote-tara-figure"><img src="images/user-7-115x115.jpg" alt="" width="115"
-                                                        height="115"/>
-                    </div>
-                </div>
-                <h6 class="quote-tara-author">Bill Johnson</h6>
-                <div class="quote-tara-status">Client</div>
-            </article>
-            <!-- Quote Tara-->
-            <article class="quote-tara">
-                <div class="quote-tara-caption">
-                    <div class="quote-tara-text">
-                        <p class="q">PizzaHouse has great pizza. Not only do you get served with a great attitude
-                            and delivered delicious pizza, you get a great price.</p>
-                    </div>
-                    <div class="quote-tara-figure"><img src="images/user-9-115x115.jpg" alt="" width="115"
-                                                        height="115"/>
-                    </div>
-                </div>
-                <h6 class="quote-tara-author">Aaron Wilson</h6>
-                <div class="quote-tara-status">Client</div>
-            </article>
+            {% endfor %}
         </div>
     </div>
 </section>
@@ -253,104 +211,22 @@
     <div class="container-fluid container-inset-0 isotope-wrap">
         <div class="row row-10 gutters-10 isotope" data-isotope-layout="masonry" data-isotope-group="gallery"
              data-lightgallery="group">
+            {% for item in random_gallery_items %}
             <div class="col-xs-6 col-sm-4 col-xl-2 isotope-item oh-desktop">
                 <!-- Thumbnail Mary-->
-                <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInLeft"><a
-                        class="thumbnail-mary-figure" href="images/gallery-1-1200x800-original.jpg"
-                        data-lightgallery="item"><img src="images/gallery-1-310x585.jpg" alt="" width="310"
-                                                      height="585"/></a>
+                <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInLeft">
+                    <a class="thumbnail-mary-figure" href="{{ item.image }}" data-lightgallery="item">
+                        <img src="{{ item.image }}" alt="" width="310" height="585"/>
+                    </a>
                     <div class="thumbnail-mary-caption">
                         <div>
-                            <h6 class="thumbnail-mary-title"><a href="#">Best Ingredients</a></h6>
-                            <div class="thumbnail-mary-location">Tasty Pizza</div>
+                            <h6 class="thumbnail-mary-title"><a href="#">{{ item.title }}</a></h6>
+                            <div class="thumbnail-mary-location">{{ item.location }}</div>
                         </div>
                     </div>
                 </article>
             </div>
-            <div class="col-xs-6 col-sm-8 col-xl-4 isotope-item oh-desktop">
-                <!-- Thumbnail Mary-->
-                <article class="thumbnail thumbnail-mary thumbnail-mary-big wow slideInRight"><a
-                        class="thumbnail-mary-figure" href="images/gallery-2-1200x800-original.jpg"
-                        data-lightgallery="item"><img src="images/gallery-2-631x587.jpg" alt="" width="631"
-                                                      height="587"/></a>
-                    <div class="thumbnail-mary-caption">
-                        <div>
-                            <h6 class="thumbnail-mary-title"><a href="#">Comfortable interior</a></h6>
-                            <div class="thumbnail-mary-location">Modern Design</div>
-                        </div>
-                    </div>
-                </article>
-            </div>
-            <div class="col-xs-6 col-sm-4 col-xl-2 isotope-item oh-desktop">
-                <!-- Thumbnail Mary-->
-                <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInDown"><a
-                        class="thumbnail-mary-figure" href="images/gallery-3-1200x800-original.jpg"
-                        data-lightgallery="item"><img src="images/gallery-3-311x289.jpg" alt="" width="311"
-                                                      height="289"/></a>
-                    <div class="thumbnail-mary-caption">
-                        <div>
-                            <h6 class="thumbnail-mary-title"><a href="#">quality Dishware</a></h6>
-                            <div class="thumbnail-mary-location">Top-notch utensils</div>
-                        </div>
-                    </div>
-                </article>
-            </div>
-            <div class="col-xs-6 col-sm-8 col-xl-4 isotope-item oh-desktop">
-                <!-- Thumbnail Mary-->
-                <article class="thumbnail thumbnail-mary wow slideInUp"><a class="thumbnail-mary-figure"
-                                                                           href="images/gallery-4-1200x800-original.jpg"
-                                                                           data-lightgallery="item"><img
-                        src="images/gallery-4-631x289.jpg" alt="" width="631" height="289"/></a>
-                    <div class="thumbnail-mary-caption">
-                        <div>
-                            <h6 class="thumbnail-mary-title"><a href="#">Refreshing cocktails</a></h6>
-                            <div class="thumbnail-mary-location">Exclusive selection</div>
-                        </div>
-                    </div>
-                </article>
-            </div>
-            <div class="col-xs-6 col-sm-4 col-xl-2 isotope-item oh-desktop">
-                <!-- Thumbnail Mary-->
-                <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInUp"><a
-                        class="thumbnail-mary-figure" href="images/gallery-5-1200x800-original.jpg"
-                        data-lightgallery="item"><img src="images/gallery-5-311x289.jpg" alt="" width="311"
-                                                      height="289"/></a>
-                    <div class="thumbnail-mary-caption">
-                        <div>
-                            <h6 class="thumbnail-mary-title"><a href="#">Exotic Salads</a></h6>
-                            <div class="thumbnail-mary-location">Summer Taste</div>
-                        </div>
-                    </div>
-                </article>
-            </div>
-            <div class="col-xs-6 col-sm-4 col-xl-2 isotope-item oh-desktop">
-                <!-- Thumbnail Mary-->
-                <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInRight"><a
-                        class="thumbnail-mary-figure" href="images/gallery-6-1200x800-original.jpg"
-                        data-lightgallery="item"><img src="images/gallery-6-311x289.jpg" alt="" width="311"
-                                                      height="289"/></a>
-                    <div class="thumbnail-mary-caption">
-                        <div>
-                            <h6 class="thumbnail-mary-title"><a href="#">All Types of pizza</a></h6>
-                            <div class="thumbnail-mary-location">Special Recipes</div>
-                        </div>
-                    </div>
-                </article>
-            </div>
-            <div class="col-xs-6 col-sm-4 col-xl-2 isotope-item oh-desktop">
-                <!-- Thumbnail Mary-->
-                <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInLeft"><a
-                        class="thumbnail-mary-figure" href="images/gallery-7-1200x800-original.jpg"
-                        data-lightgallery="item"><img src="images/gallery-7-311x289.jpg" alt="" width="311"
-                                                      height="289"/></a>
-                    <div class="thumbnail-mary-caption">
-                        <div>
-                            <h6 class="thumbnail-mary-title"><a href="#">Diverse menu</a></h6>
-                            <div class="thumbnail-mary-location">Pick Your Favorite dish</div>
-                        </div>
-                    </div>
-                </article>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>
@@ -365,33 +241,33 @@
                 <div class="box-icon-megan-header">
                     <div class="box-icon-megan-icon linearicons-bag"></div>
                 </div>
-                <h5 class="box-icon-megan-title"><a href="#">Free Delivery</a></h5>
-                <p class="box-icon-megan-text">If you order more than 3 pizzas, we will gladly deliver them to you
-                    for free.</p>
+                <h5 class="box-icon-megan-title"><a href="#">Bepul yetkazib berish</a></h5>
+                <p class="box-icon-megan-text">Agar siz 3 tadan ortiq ovqat buyurtma qilsangiz, biz ularni mamnuniyat
+                    bilan sizga bepul yetkazib beramiz.</p>
             </article>
             <article class="box-icon-megan wow fadeInUp" data-wow-delay=".05s">
                 <div class="box-icon-megan-header">
                     <div class="box-icon-megan-icon linearicons-map2"></div>
                 </div>
-                <h5 class="box-icon-megan-title"><a href="#">Convenient Location</a></h5>
-                <p class="box-icon-megan-text">Our pizzeria is situated in the downtown and is very easy to reach
-                    even on weekends.</p>
+                <h5 class="box-icon-megan-title"><a href="#">Qulay joylashuv</a></h5>
+                <p class="box-icon-megan-text">Bizning pitseriya shahar markazida joylashgan va hatto dam olish
+                    kunlarida ham borish juda oson.</p>
             </article>
             <article class="box-icon-megan wow fadeInUp" data-wow-delay=".1s">
                 <div class="box-icon-megan-header">
                     <div class="box-icon-megan-icon linearicons-radar"></div>
                 </div>
-                <h5 class="box-icon-megan-title"><a href="#">Free Wi-Fi</a></h5>
-                <p class="box-icon-megan-text">We have free Wi-Fi available to all clients and visitors of our
-                    pizzeria.</p>
+                <h5 class="box-icon-megan-title"><a href="#">Tekin Wi-fi</a></h5>
+                <p class="box-icon-megan-text">Restaranimizda barcha mijozlari va mehmonlari uchun bizda bepul Wi-Fi
+                    mavjud.</p>
             </article>
             <article class="box-icon-megan wow fadeInUp" data-wow-delay=".15s">
                 <div class="box-icon-megan-header">
                     <div class="box-icon-megan-icon linearicons-thumbs-up"></div>
                 </div>
-                <h5 class="box-icon-megan-title"><a href="#">Best Service</a></h5>
-                <p class="box-icon-megan-text">The client is our #1 priority as we deliver top-notch customer
-                    service.</p>
+                <h5 class="box-icon-megan-title"><a href="#">Eng yaxshi xizmat</a></h5>
+                <p class="box-icon-megan-text">Mijoz bizning №1 ustuvor vazifamizdir, chunki biz yuqori darajadagi
+                    mijozlarga xizmat ko'rsatamiz.</p>
             </article>
         </div>
     </div>
