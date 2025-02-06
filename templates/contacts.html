@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Breadcrumbs -->
+<section class="bg-gray-7">
+    <div class="breadcrumbs-custom box-transform-wrap context-dark">
+        <div class="container">
+            <h3 class="breadcrumbs-custom-title">Contacts</h3>
+            <div class="breadcrumbs-custom-decor"></div>
+        </div>
+        <div class="box-transform" style="background-image: url(images/bg-1.jpg);"></div>
+    </div>
+    <div class="container">
+        <ul class="breadcrumbs-custom-path">
+            <li><a href="/">Home</a></li>
+            <li class="active">Contacts</li>
+        </ul>
+    </div>
+</section>
+<!-- Contacts-->
+<section class="section section-lg bg-default text-md-left">
+    <div class="container">
+        <div class="row row-60 justify-content-center">
+            <div class="col-lg-8">
+                <h4 class="text-spacing-25 text-transform-none">Oldindan joy band qilish</h4>
+                <form class="rd-form rd-mailform" data-form-output="form-output-global" data-form-type="contact"
+                      method="post" action="/aloqa/">
+                    <div class="row row-20 gutters-20">
+                        <!-- Name Field -->
+                        <div class="col-md-6">
+                            <div class="form-wrap">
+                                <input class="form-input" id="contact-your-name-5" type="text" name="name"
+                                       data-constraints="@Required" placeholder=" ">
+                                <label class="form-label" for="contact-your-name-5">Ismingiz*</label>
+                            </div>
+                        </div>
+
+                        <!-- Surname Field -->
+                        <div class="col-md-6">
+                            <div class="form-wrap">
+                                <input class="form-input" id="contact-your-surname-5" type="text" name="surname"
+                                       data-constraints="@Required" placeholder=" ">
+                                <label class="form-label" for="contact-your-surname-5">Familiyangiz*</label>
+                            </div>
+                        </div>
+
+                        <!-- Email Field -->
+                        <div class="col-md-6">
+                            <div class="form-wrap">
+                                <input class="form-input" id="contact-email-5" type="email" name="email"
+                                       data-constraints="@Email @Required" placeholder=" ">
+                                <label class="form-label" for="contact-email-5">E-mailingiz*</label>
+                            </div>
+                        </div>
+
+                        <!-- Phone Number Field -->
+                        <div class="col-md-6">
+                            <div class="form-wrap">
+                                <input class="form-input" id="contact-phone-5" type="tel" name="phone"
+                                       data-constraints="@Required" placeholder=" ">
+                                <label class="form-label" for="contact-phone-5">Telefon raqamingiz*</label>
+                            </div>
+                        </div>
+
+                        <!-- Table Select -->
+                        <div class="col-md-6">
+                            <div class="form-wrap">
+                                <select class="form-input" name="table" data-constraints="@Required">
+                                    <option value="">Stolni tanlang</option>
+                                    {% for table in tables %}
+                                    <option value="{{ table.id }}">{{ table.number }} - {{ table.stoldagi_orindiq_soni
+                                        }} o'rindiq
+                                    </option>
+                                    {% endfor %}
+                                </select>
+                                <label class="form-label" for="table">Stolni tanlang*</label>
+                            </div>
+                        </div>
+
+                        <!-- Date & Time (Buyurma Sanasi) -->
+                        <div class="col-md-6">
+                            <div class="form-wrap">
+                                <input class="form-input" id="buyurma_sanasi" type="datetime-local"
+                                       name="buyurma_sanasi" data-constraints="@Required" placeholder=" ">
+                            </div>
+                        </div>
+
+                        <!-- Guests Number -->
+                        <div class="col-md-6">
+                            <div class="form-wrap">
+                                <input class="form-input" id="mehmonlar_soni" type="number" name="mehmonlar_soni"
+                                       min="1" data-constraints="@Required" placeholder=" ">
+                                <label class="form-label" for="mehmonlar_soni">Mehmonlar soni*</label>
+                            </div>
+                        </div>
+
+                        <!-- Special Requests -->
+                        <div class="col-12">
+                            <div class="form-wrap">
+                                <textarea class="form-input textarea-lg" id="maxsus_sorovlar" name="maxsus_sorovlar"
+                                          placeholder=" "></textarea>
+                                <label class="form-label" for="maxsus_sorovlar">Maxsus sorovlar</label>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="group-custom-1 group-middle">
+                            <button class="button button-lg button-primary button-winona" type="submit">
+                                Stolni band qilish
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+
+            </div>
+            <!--           /////////////////////////////////////////////////////////////////////////////////////// -->
+            <div class="col-lg-4">
+                <div class="aside-contacts">
+                    <div class="row row-30">
+                        <div class="col-sm-6 col-lg-12 aside-contacts-item">
+                            <p class="aside-contacts-title">Get social</p>
+                            <ul class="list-inline contacts-social-list list-inline-sm">
+                                <li><a class="icon mdi mdi-facebook" href="#"></a></li>
+                                <li><a class="icon mdi mdi-twitter" href="#"></a></li>
+                                <li><a class="icon mdi mdi-instagram" href="#"></a></li>
+                                <li><a class="icon mdi mdi-google-plus" href="#"></a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6 col-lg-12 aside-contacts-item">
+                            <p class="aside-contacts-title">Phone</p>
+                            <div class="unit unit-spacing-xs justify-content-center justify-content-md-start">
+                                <div class="unit-left"><span class="icon mdi mdi-phone"></span></div>
+                                <div class="unit-body"><a class="phone" href="tel:#">1-800-1234-567</a></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-12 aside-contacts-item">
+                            <p class="aside-contacts-title">E-mail</p>
+                            <div class="unit unit-spacing-xs justify-content-center justify-content-md-start">
+                                <div class="unit-left"><span class="icon mdi mdi-email-outline"></span></div>
+                                <div class="unit-body"><a class="mail" href="mailto:#">info@demolink.org</a></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-12 aside-contacts-item">
+                            <p class="aside-contacts-title">Address</p>
+                            <div class="unit unit-spacing-xs justify-content-center justify-content-md-start">
+                                <div class="unit-left"><span class="icon mdi mdi-map-marker"></span></div>
+                                <div class="unit-body"><a class="address" href="#">6036 Richmond hwy., <br
+                                        class="d-md-none">Alexandria, VA, 2230</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

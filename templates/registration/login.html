@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Saytga kirish{% endblock title %}
+{% block content %}
+<br>
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="col-md-8 col-lg-6"> <!-- Kenglikni oshirish uchun sinflar o'zgartirildi -->
+        <div class="card shadow-lg border-0 rounded-4" style="width: 100%;">
+            <div class="card-body p-5">
+                <h2 class="text-center mb-4">Saytga kirish</h2>
+                <form method="post" class="login-form">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    {% if error %}
+                    <div class="alert alert-danger mt-3">{{ error }}</div>
+                    {% endif %}
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-success btn-block">Kirish</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+{% endblock content %}
