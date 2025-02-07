@@ -1,4 +1,4 @@
-from .models import BigMenu, SmallMenu, Product, Aksiya, Slider, NewProduct, Tables
+from .models import BigMenu, SmallMenu, Product, Aksiya, Slider, NewProduct, Tables, Order
 import random
 from rest_framework.response import Response
 from rest_framework import status
@@ -34,43 +34,70 @@ def menu(request):
     return render(request, 'food_menus.html')
 
 
+#
+# def contacts_view(request):
+#     tables = Tables.objects.all()
+#     if request.method == 'POST':
+#         form = PeopleOrderForm(request.POST)
+#         print("////////////////////////////////////////////////////////////////////////")
+#         if form.is_valid():
+#             # Formadagi ma'lumotlarni o'zgaruvchiga olish
+#             name = request.POST.get('name')
+#             surname = request.POST.get('surname')
+#             email = request.POST.get('email')
+#             phone = request.POST.get('phone')
+#             table = request.POST.get('table')
+#             buyurma_sanasi = request.POST.get('buyurma_sanasi')
+#             mehmonlar_soni = request.POST.get('mehmonlar_soni')
+#             maxsus_sorovlar = request.POST.get('maxsus_sorovlar')
+#
+#             # Yangi model obyektini yaratish va saqlash
+#             new_order = Order(
+#                 name=name,
+#                 surname=surname,
+#                 email=email,
+#                 phone=phone,
+#                 table=table,
+#                 buyurma_sanasi=buyurma_sanasi,
+#                 mehmonlar_soni=mehmonlar_soni,
+#                 maxsus_sorovlar=maxsus_sorovlar
+#             )
+#             print("////////////////")
+#             print("malumotlar qabul qilindi")
+#             new_order.save()
+#             return redirect('/')
+#     else:
+#         form = PeopleOrderForm()
+#
+#     return render(request, 'contacts.html', {'form': form, 'tables': tables})
+
+
 def contacts_view(request):
     tables = Tables.objects.all()
     if request.method == 'POST':
-        print("////////////////////////////////////////////////////")
-        print(request.POST, "////////////////////////////////////////////////////")
-        print("Malumot olindi")
-        form = PeopleOrderForm(request.POST)
-        if form.is_valid():
-            print(",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,")
-            print("Malumot olindi")
-            form.save()
-            return redirect('/')
+        # POST metodini ishlatishda ma'lumotlarni olish
+        name = request.POST.get('name')
+        surname = request.POST.get('surname')
+        email = request.POST.get('email')
+        tel = request.POST.get('phone')
+        table = request.POST.get('mehmonlar_soni')
+        kimbn = request.POST.get('kim_bn')
+        buyurma_sanasi = request.POST.get('buyurma_sanasi')
+        maxsus_sorovlar = request.POST.get('maxsus_sorovlar')
+        new_order = Order(
+            ismi=name,
+            fmiliasi=surname,
+            email=email,
+            tel=tel,
+            table=table,
+            kim_bn=kimbn,
+            buyurma_sanasi=buyurma_sanasi,
+            maxsus_sorovlar=maxsus_sorovlar
+        )
+        new_order.save()
+        return redirect('/')
     else:
-        form = PeopleOrderForm()
-
-    return render(request, 'contacts.html', {'form': form, 'tables': tables})
-
-
-# def contact_view(request):
-#     if request.method == 'POST':
-#         # POST metodini ishlatishda ma'lumotlarni olish
-#         name = request.POST.get('name')
-#         surname = request.POST.get('surname')
-#         email = request.POST.get('email')
-#         tel = request.POST.get('phone')
-#         tabl = request.POST.get('table')
-#         buyurma_sanasi = request.POST.get('buyurma_sanasi')
-#         mehmonlar_soni = request.POST.get('mehmonlar_soni')
-#         maxsus_sorovlar = request.POST.get('maxsus_sorovlar')
-#         print(name, surname, email, tel, tabl, buyurma_sanasi, mehmonlar_soni, maxsus_sorovlar)
-#         # Boshqa maydonlar...
-#
-#         # Ma'lumotlarni qayta ishlash, saqlash yoki yuborish
-#         return HttpResponse("POST metod ishladi. Ma'lumotlar qabul qilindi.")
-#     else:
-#         tables = Tables.objects.all()
-#         return render(request, 'contacts.html', {'tables': tables})
+        return render(request, 'contacts.html', {'tables': tables})
 
 
 # BigMenu API

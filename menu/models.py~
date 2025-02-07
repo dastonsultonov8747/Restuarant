@@ -79,7 +79,7 @@ class Order(models.Model):
     email = models.EmailField()
     tel = models.CharField(max_length=20)
     table = models.IntegerField()
-    kim_bn = models.CharField(choices=shahslar, default="o'zim")
+    kim_bn = models.CharField(choices=shahslar)
     buyurma_sanasi = models.DateTimeField()
     maxsus_sorovlar = models.TextField(blank=True, null=True)  # Maxsus so'rovlar
 

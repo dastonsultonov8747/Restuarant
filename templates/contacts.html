@@ -63,17 +63,27 @@
                                 <label class="form-label" for="contact-phone-5">Telefon raqamingiz*</label>
                             </div>
                         </div>
-
-                        <!-- Table Select -->
-                        <div class="col-md-6" style="margin-top: 40px">
+                        <div class="col-md-6">
                             <div class="form-wrap">
-                                <select class="form-input" name="table" data-constraints="@Required">
-                                    <option value="">Stolni tanlang</option>
-                                    {% for table in tables %}
-                                    <option>{{ table.number }}- Stul - {{ table.stoldagi_orindiq_soni }} o'rindiq
-                                    </option>
-                                    {% endfor %}
+                                <label class="form-label" for="kim_bn">Kim bilan kelmoqchisiz?</label>
+                                <select class="form-input" id="kim_bn" name="kim_bn">
+                                    <option value="" disabled selected>Kim bilan kelmoqchisiz?</option>
+                                    <option value="do'stim bilan">Do'stim bilan</option>
+                                    <option value="sevgan qizim(Yigitim) bilan">Sevgan Qizim(Yigitim) bilan</option>
+                                    <option value="qarindoshlarim bilan">Qarindoshlarim bilan</option>
+                                    <option value="faqat o'zim">Faqat o'zim</option>
                                 </select>
+                            </div>
+                        </div>
+
+
+                        <!-- Guests Number -->
+                        <div class="col-md-6">
+                            <div class="form-wrap">
+                                <input class="form-input" id="mehmonlar_soni" type="number" name="mehmonlar_soni"
+                                       min="1" data-constraints="@Required" placeholder=" ">
+                                <label class="form-label" for="mehmonlar_soni">Mehmonlar soni</label><br>
+
                             </div>
                         </div>
 
@@ -83,15 +93,6 @@
                             <div class="form-wrap">
                                 <input class="form-input" id="buyurma_sanasi" type="datetime-local"
                                        name="buyurma_sanasi" data-constraints="@Required" placeholder=" ">
-                            </div>
-                        </div>
-
-                        <!-- Guests Number -->
-                        <div class="col-md-6">
-                            <label class="form-label" for="mehmonlar_soni">Mehmonlar soni</label><br>
-                            <div class="form-wrap">
-                                <input class="form-input" id="mehmonlar_soni" type="number" name="mehmonlar_soni"
-                                       min="1" data-constraints="@Required" placeholder=" ">
                             </div>
                         </div>
 
@@ -138,7 +139,8 @@
                             <p class="aside-contacts-title">E-mail</p>
                             <div class="unit unit-spacing-xs justify-content-center justify-content-md-start">
                                 <div class="unit-left"><span class="icon mdi mdi-email-outline"></span></div>
-                                <div class="unit-body"><a class="mail" href="mailto:#">dostonsultonov15@gmail.com</a></div>
+                                <div class="unit-body"><a class="mail" href="mailto:#">dostonsultonov15@gmail.com</a>
+                                </div>
                             </div>
                         </div>
                         <div class="col-sm-6 col-lg-12 aside-contacts-item">
